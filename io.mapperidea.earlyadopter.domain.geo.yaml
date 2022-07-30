@@ -1,0 +1,782 @@
+swagger: '2.0'
+info:
+  version: v1
+  title: CentraID API geo
+  description: API para integración de CentraID paquete geo
+host: api.centraid.com
+schemes:
+  - https
+basePath: /geo
+paths:
+  /Pais:
+    get:
+      operationId: "Pais_listAll"
+      summary: Lista todos los registros de Pais.
+      tags:
+        - Pais
+      parameters:
+      produces:
+      - "application/json"
+      responses:
+        '200':
+          description: OK
+          schema:
+              $ref: '#/definitions/PaisResult'
+    post:
+      operationId: "Pais_create"
+      summary: Crea un registro de Pais.
+      tags:
+        - Pais
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Request body"
+        required: true
+        schema:
+              $ref: '#/definitions/Pais'
+      responses:
+        '200':
+          description: OK
+          schema:
+              $ref: '#/definitions/Pais'
+  /Pais/count:
+    get:
+      operationId: "Pais_count"
+      summary: Retorna total de registros de Pais.
+      tags:
+        - Pais
+      parameters:
+      produces:
+      - "application/json"
+      responses: 
+        '200': 
+          description: OK 
+          schema: 
+              $ref: '#/definitions/CountResult' 
+  /Pais/max/{campo}:
+    get:
+      operationId: "Pais_max"
+      summary: Retorna el valor máximo de campo de los registros de Pais.
+      tags:
+        - Pais
+      parameters:
+      - name: "campo"
+        in: "path"
+        required: true
+        type: "string"
+      produces:
+      - "application/json"
+      responses:  
+        '200':  
+          description: OK  
+          schema:  
+              $ref: '#/definitions/MaxResult'  
+  /Pais/sum/{campo}:
+    get: 
+      operationId: "Pais_sum" 
+      summary: Retorna la suma de un campo de los registros de Pais.
+      tags:
+        - Pais
+      parameters: 
+      - name: "campo" 
+        in: "path" 
+        required: true 
+        type: "string" 
+      produces:
+      - "application/json"
+      responses:   
+        '200':   
+          description: OK   
+          schema:   
+              $ref: '#/definitions/SumResult'   
+  /Pais/{from}/{to}:
+    get:
+      operationId: "Pais_listRange"
+      summary: Lista los registros de Pais por posición.
+      tags:
+        - Pais
+      parameters:
+      - name: "from"
+        in: "path"
+        required: true
+        type: "integer"
+      - name: "to"
+        in: "path"
+        required: true
+        type: "integer"
+      produces:
+      - "application/json"
+      responses:
+        '200':
+          description: OK
+          schema:
+              $ref: '#/definitions/PaisResult'
+  /Pais/{id}:
+    get:
+      operationId: "Pais_read"
+      summary: Retorna o respectivo registro de Pais.
+      tags:
+        - Pais
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+      produces:
+      - "application/json"
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Pais'
+    put:
+      operationId: "Pais_update" 
+      summary: Actualiza el respectivo registro de Pais.
+      tags:
+        - Pais
+      consumes:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+      - in: "body"
+        name: "body"
+        description: "Request body"
+        required: true
+        schema:
+          $ref: '#/definitions/Pais'
+      responses:
+        '200':
+          description: OK
+    delete:
+      operationId: "Pais_delete"  
+      summary: Remove o respectivo registro de Pais.
+      tags:
+        - Pais
+      parameters: 
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+      responses:
+        '200':
+          description: OK
+###################################
+  /UnidadeFederativa:
+    get:
+      operationId: "UnidadeFederativa_listAll"
+      summary: Lista todos los registros de UnidadeFederativa.
+      tags:
+        - UnidadeFederativa
+      parameters:
+      produces:
+      - "application/json"
+      responses:
+        '200':
+          description: OK
+          schema:
+              $ref: '#/definitions/UnidadeFederativaResult'
+    post:
+      operationId: "UnidadeFederativa_create"
+      summary: Crea un registro de UnidadeFederativa.
+      tags:
+        - UnidadeFederativa
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Request body"
+        required: true
+        schema:
+              $ref: '#/definitions/UnidadeFederativa'
+      responses:
+        '200':
+          description: OK
+          schema:
+              $ref: '#/definitions/UnidadeFederativa'
+  /UnidadeFederativa/count:
+    get:
+      operationId: "UnidadeFederativa_count"
+      summary: Retorna total de registros de UnidadeFederativa.
+      tags:
+        - UnidadeFederativa
+      parameters:
+      produces:
+      - "application/json"
+      responses: 
+        '200': 
+          description: OK 
+          schema: 
+              $ref: '#/definitions/CountResult' 
+  /UnidadeFederativa/max/{campo}:
+    get:
+      operationId: "UnidadeFederativa_max"
+      summary: Retorna el valor máximo de campo de los registros de UnidadeFederativa.
+      tags:
+        - UnidadeFederativa
+      parameters:
+      - name: "campo"
+        in: "path"
+        required: true
+        type: "string"
+      produces:
+      - "application/json"
+      responses:  
+        '200':  
+          description: OK  
+          schema:  
+              $ref: '#/definitions/MaxResult'  
+  /UnidadeFederativa/sum/{campo}:
+    get: 
+      operationId: "UnidadeFederativa_sum" 
+      summary: Retorna la suma de un campo de los registros de UnidadeFederativa.
+      tags:
+        - UnidadeFederativa
+      parameters: 
+      - name: "campo" 
+        in: "path" 
+        required: true 
+        type: "string" 
+      produces:
+      - "application/json"
+      responses:   
+        '200':   
+          description: OK   
+          schema:   
+              $ref: '#/definitions/SumResult'   
+  /UnidadeFederativa/{from}/{to}:
+    get:
+      operationId: "UnidadeFederativa_listRange"
+      summary: Lista los registros de UnidadeFederativa por posición.
+      tags:
+        - UnidadeFederativa
+      parameters:
+      - name: "from"
+        in: "path"
+        required: true
+        type: "integer"
+      - name: "to"
+        in: "path"
+        required: true
+        type: "integer"
+      produces:
+      - "application/json"
+      responses:
+        '200':
+          description: OK
+          schema:
+              $ref: '#/definitions/UnidadeFederativaResult'
+  /UnidadeFederativa/{id}:
+    get:
+      operationId: "UnidadeFederativa_read"
+      summary: Retorna o respectivo registro de UnidadeFederativa.
+      tags:
+        - UnidadeFederativa
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+      produces:
+      - "application/json"
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/UnidadeFederativa'
+    put:
+      operationId: "UnidadeFederativa_update" 
+      summary: Actualiza el respectivo registro de UnidadeFederativa.
+      tags:
+        - UnidadeFederativa
+      consumes:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+      - in: "body"
+        name: "body"
+        description: "Request body"
+        required: true
+        schema:
+          $ref: '#/definitions/UnidadeFederativa'
+      responses:
+        '200':
+          description: OK
+    delete:
+      operationId: "UnidadeFederativa_delete"  
+      summary: Remove o respectivo registro de UnidadeFederativa.
+      tags:
+        - UnidadeFederativa
+      parameters: 
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+      responses:
+        '200':
+          description: OK
+  /UnidadeFederativa/distinct/pais:
+    get:
+      operationId: "UnidadeFederativa_pais_distinct"
+      summary: List all records of UnidadeFederativa referenced by field pais.
+      tags:
+        - UnidadeFederativa
+      parameters:
+      produces:
+      - "application/json"
+      responses:
+        '200':
+          description: OK
+          schema:
+              $ref: '#/definitions/PaisResult'
+  /UnidadeFederativa/distinct/pais/count:
+    get:
+      operationId: "UnidadeFederativa_pais_distinctCount"
+      summary: Retorna a contagem dos registros de UnidadeFederativa referenciados pelo campo pais.
+      tags:
+        - UnidadeFederativa
+      parameters:
+      produces:
+      - "application/json"
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/CountResult'
+###################################
+  /Cidade:
+    get:
+      operationId: "Cidade_listAll"
+      summary: Lista todos los registros de Cidade.
+      tags:
+        - Cidade
+      parameters:
+      produces:
+      - "application/json"
+      responses:
+        '200':
+          description: OK
+          schema:
+              $ref: '#/definitions/CidadeResult'
+    post:
+      operationId: "Cidade_create"
+      summary: Crea un registro de Cidade.
+      tags:
+        - Cidade
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Request body"
+        required: true
+        schema:
+              $ref: '#/definitions/Cidade'
+      responses:
+        '200':
+          description: OK
+          schema:
+              $ref: '#/definitions/Cidade'
+  /Cidade/count:
+    get:
+      operationId: "Cidade_count"
+      summary: Retorna total de registros de Cidade.
+      tags:
+        - Cidade
+      parameters:
+      produces:
+      - "application/json"
+      responses: 
+        '200': 
+          description: OK 
+          schema: 
+              $ref: '#/definitions/CountResult' 
+  /Cidade/max/{campo}:
+    get:
+      operationId: "Cidade_max"
+      summary: Retorna el valor máximo de campo de los registros de Cidade.
+      tags:
+        - Cidade
+      parameters:
+      - name: "campo"
+        in: "path"
+        required: true
+        type: "string"
+      produces:
+      - "application/json"
+      responses:  
+        '200':  
+          description: OK  
+          schema:  
+              $ref: '#/definitions/MaxResult'  
+  /Cidade/sum/{campo}:
+    get: 
+      operationId: "Cidade_sum" 
+      summary: Retorna la suma de un campo de los registros de Cidade.
+      tags:
+        - Cidade
+      parameters: 
+      - name: "campo" 
+        in: "path" 
+        required: true 
+        type: "string" 
+      produces:
+      - "application/json"
+      responses:   
+        '200':   
+          description: OK   
+          schema:   
+              $ref: '#/definitions/SumResult'   
+  /Cidade/{from}/{to}:
+    get:
+      operationId: "Cidade_listRange"
+      summary: Lista los registros de Cidade por posición.
+      tags:
+        - Cidade
+      parameters:
+      - name: "from"
+        in: "path"
+        required: true
+        type: "integer"
+      - name: "to"
+        in: "path"
+        required: true
+        type: "integer"
+      produces:
+      - "application/json"
+      responses:
+        '200':
+          description: OK
+          schema:
+              $ref: '#/definitions/CidadeResult'
+  /Cidade/{id}:
+    get:
+      operationId: "Cidade_read"
+      summary: Retorna o respectivo registro de Cidade.
+      tags:
+        - Cidade
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+      produces:
+      - "application/json"
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Cidade'
+    put:
+      operationId: "Cidade_update" 
+      summary: Actualiza el respectivo registro de Cidade.
+      tags:
+        - Cidade
+      consumes:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+      - in: "body"
+        name: "body"
+        description: "Request body"
+        required: true
+        schema:
+          $ref: '#/definitions/Cidade'
+      responses:
+        '200':
+          description: OK
+    delete:
+      operationId: "Cidade_delete"  
+      summary: Remove o respectivo registro de Cidade.
+      tags:
+        - Cidade
+      parameters: 
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+      responses:
+        '200':
+          description: OK
+  /Cidade/distinct/uf:
+    get:
+      operationId: "Cidade_uf_distinct"
+      summary: List all records of Cidade referenced by field uf.
+      tags:
+        - Cidade
+      parameters:
+      produces:
+      - "application/json"
+      responses:
+        '200':
+          description: OK
+          schema:
+              $ref: '#/definitions/UnidadeFederativaResult'
+  /Cidade/distinct/uf/count:
+    get:
+      operationId: "Cidade_uf_distinctCount"
+      summary: Retorna a contagem dos registros de Cidade referenciados pelo campo uf.
+      tags:
+        - Cidade
+      parameters:
+      produces:
+      - "application/json"
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/CountResult'
+###################################
+  /Bairro:
+    get:
+      operationId: "Bairro_listAll"
+      summary: Lista todos los registros de Bairro.
+      tags:
+        - Bairro
+      parameters:
+      produces:
+      - "application/json"
+      responses:
+        '200':
+          description: OK
+          schema:
+              $ref: '#/definitions/BairroResult'
+    post:
+      operationId: "Bairro_create"
+      summary: Crea un registro de Bairro.
+      tags:
+        - Bairro
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Request body"
+        required: true
+        schema:
+              $ref: '#/definitions/Bairro'
+      responses:
+        '200':
+          description: OK
+          schema:
+              $ref: '#/definitions/Bairro'
+  /Bairro/count:
+    get:
+      operationId: "Bairro_count"
+      summary: Retorna total de registros de Bairro.
+      tags:
+        - Bairro
+      parameters:
+      produces:
+      - "application/json"
+      responses: 
+        '200': 
+          description: OK 
+          schema: 
+              $ref: '#/definitions/CountResult' 
+  /Bairro/max/{campo}:
+    get:
+      operationId: "Bairro_max"
+      summary: Retorna el valor máximo de campo de los registros de Bairro.
+      tags:
+        - Bairro
+      parameters:
+      - name: "campo"
+        in: "path"
+        required: true
+        type: "string"
+      produces:
+      - "application/json"
+      responses:  
+        '200':  
+          description: OK  
+          schema:  
+              $ref: '#/definitions/MaxResult'  
+  /Bairro/sum/{campo}:
+    get: 
+      operationId: "Bairro_sum" 
+      summary: Retorna la suma de un campo de los registros de Bairro.
+      tags:
+        - Bairro
+      parameters: 
+      - name: "campo" 
+        in: "path" 
+        required: true 
+        type: "string" 
+      produces:
+      - "application/json"
+      responses:   
+        '200':   
+          description: OK   
+          schema:   
+              $ref: '#/definitions/SumResult'   
+  /Bairro/{from}/{to}:
+    get:
+      operationId: "Bairro_listRange"
+      summary: Lista los registros de Bairro por posición.
+      tags:
+        - Bairro
+      parameters:
+      - name: "from"
+        in: "path"
+        required: true
+        type: "integer"
+      - name: "to"
+        in: "path"
+        required: true
+        type: "integer"
+      produces:
+      - "application/json"
+      responses:
+        '200':
+          description: OK
+          schema:
+              $ref: '#/definitions/BairroResult'
+  /Bairro/{id}:
+    get:
+      operationId: "Bairro_read"
+      summary: Retorna o respectivo registro de Bairro.
+      tags:
+        - Bairro
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+      produces:
+      - "application/json"
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Bairro'
+    put:
+      operationId: "Bairro_update" 
+      summary: Actualiza el respectivo registro de Bairro.
+      tags:
+        - Bairro
+      consumes:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+      - in: "body"
+        name: "body"
+        description: "Request body"
+        required: true
+        schema:
+          $ref: '#/definitions/Bairro'
+      responses:
+        '200':
+          description: OK
+    delete:
+      operationId: "Bairro_delete"  
+      summary: Remove o respectivo registro de Bairro.
+      tags:
+        - Bairro
+      parameters: 
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+      responses:
+        '200':
+          description: OK
+###################################
+definitions:
+  CountResult:
+    type: object
+    properties:
+      count:
+        type: integer
+  MaxResult:
+    type: object
+    properties:
+      max:
+        type: number
+  SumResult:
+    type: object
+    properties:
+      sum:
+        type: number
+  PaisResult:
+    type: object
+    properties:
+      paisList:
+            type: array
+            items:
+              $ref: '#/definitions/Pais'
+  Pais:
+    type: object
+    properties:
+      sigla:
+        $ref: '#/definitions/Texto'
+      nome:
+        $ref: '#/definitions/Texto'
+  UnidadeFederativaResult:
+    type: object
+    properties:
+      unidadeFederativaList:
+            type: array
+            items:
+              $ref: '#/definitions/UnidadeFederativa'
+  UnidadeFederativa:
+    type: object
+    properties:
+      pais:
+        $ref: '#/definitions/Pais'
+      sigla:
+        $ref: '#/definitions/Texto'
+      nome:
+        $ref: '#/definitions/Texto'
+  CidadeResult:
+    type: object
+    properties:
+      cidadeList:
+            type: array
+            items:
+              $ref: '#/definitions/Cidade'
+  Cidade:
+    type: object
+    properties:
+      uf:
+        $ref: '#/definitions/UnidadeFederativa'
+      codigo:
+        $ref: '#/definitions/Numero'
+      nome:
+        $ref: '#/definitions/Texto'
+      bairros:
+        type: array
+        items:
+          $ref: '#/definitions/Bairro'
+      issPadrao:
+        $ref: '#/definitions/NumeroDecimal'
+  BairroResult:
+    type: object
+    properties:
+      bairroList:
+            type: array
+            items:
+              $ref: '#/definitions/Bairro'
+  Bairro:
+    type: object
+    properties:
+      cidade:
+        $ref: '#/definitions/Cidade'
+      nome:
+        $ref: '#/definitions/Texto'
+      cepPadrao:
+        $ref: '#/definitions/Numero'

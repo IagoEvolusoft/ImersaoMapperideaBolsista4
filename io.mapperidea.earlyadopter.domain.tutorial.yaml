@@ -1,0 +1,220 @@
+swagger: '2.0'
+info:
+  version: v1
+  title: CentraID API tutorial
+  description: API para integración de CentraID paquete tutorial
+host: api.centraid.com
+schemes:
+  - https
+basePath: /tutorial
+paths:
+  /Tutorial:
+    get:
+      operationId: "Tutorial_listAll"
+      summary: Lista todos los registros de Tutorial.
+      tags:
+        - Tutorial
+      parameters:
+      - name: "published"
+        in: "query"
+        description: "Filtra registros por published"
+        type: boolean
+      produces:
+      - "application/json"
+      responses:
+        '200':
+          description: OK
+          schema:
+              $ref: '#/definitions/TutorialResult'
+    post:
+      operationId: "Tutorial_create"
+      summary: Crea un registro de Tutorial.
+      tags:
+        - Tutorial
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Request body"
+        required: true
+        schema:
+              $ref: '#/definitions/Tutorial'
+      responses:
+        '200':
+          description: OK
+          schema:
+              $ref: '#/definitions/Tutorial'
+  /Tutorial/count:
+    get:
+      operationId: "Tutorial_count"
+      summary: Retorna total de registros de Tutorial.
+      tags:
+        - Tutorial
+      parameters:
+      - name: "published"
+        in: "query"
+        description: "Filtra registros por published"
+        type: boolean
+      produces:
+      - "application/json"
+      responses: 
+        '200': 
+          description: OK 
+          schema: 
+              $ref: '#/definitions/CountResult' 
+  /Tutorial/max/{campo}:
+    get:
+      operationId: "Tutorial_max"
+      summary: Retorna el valor máximo de campo de los registros de Tutorial.
+      tags:
+        - Tutorial
+      parameters:
+      - name: "campo"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "published"
+        in: "query"
+        description: "Filtra registros por published"
+        type: boolean
+      produces:
+      - "application/json"
+      responses:  
+        '200':  
+          description: OK  
+          schema:  
+              $ref: '#/definitions/MaxResult'  
+  /Tutorial/sum/{campo}:
+    get: 
+      operationId: "Tutorial_sum" 
+      summary: Retorna la suma de un campo de los registros de Tutorial.
+      tags:
+        - Tutorial
+      parameters: 
+      - name: "campo" 
+        in: "path" 
+        required: true 
+        type: "string" 
+      - name: "published"
+        in: "query"
+        description: "Filtra registros por published"
+        type: boolean
+      produces:
+      - "application/json"
+      responses:   
+        '200':   
+          description: OK   
+          schema:   
+              $ref: '#/definitions/SumResult'   
+  /Tutorial/{from}/{to}:
+    get:
+      operationId: "Tutorial_listRange"
+      summary: Lista los registros de Tutorial por posición.
+      tags:
+        - Tutorial
+      parameters:
+      - name: "from"
+        in: "path"
+        required: true
+        type: "integer"
+      - name: "to"
+        in: "path"
+        required: true
+        type: "integer"
+      - name: "published"
+        in: "query"
+        description: "Filtra registros por published"
+        type: boolean
+      produces:
+      - "application/json"
+      responses:
+        '200':
+          description: OK
+          schema:
+              $ref: '#/definitions/TutorialResult'
+  /Tutorial/{id}:
+    get:
+      operationId: "Tutorial_read"
+      summary: Retorna o respectivo registro de Tutorial.
+      tags:
+        - Tutorial
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+      produces:
+      - "application/json"
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Tutorial'
+    put:
+      operationId: "Tutorial_update" 
+      summary: Actualiza el respectivo registro de Tutorial.
+      tags:
+        - Tutorial
+      consumes:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+      - in: "body"
+        name: "body"
+        description: "Request body"
+        required: true
+        schema:
+          $ref: '#/definitions/Tutorial'
+      responses:
+        '200':
+          description: OK
+    delete:
+      operationId: "Tutorial_delete"  
+      summary: Remove o respectivo registro de Tutorial.
+      tags:
+        - Tutorial
+      parameters: 
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+      responses:
+        '200':
+          description: OK
+###################################
+definitions:
+  CountResult:
+    type: object
+    properties:
+      count:
+        type: integer
+  MaxResult:
+    type: object
+    properties:
+      max:
+        type: number
+  SumResult:
+    type: object
+    properties:
+      sum:
+        type: number
+  TutorialResult:
+    type: object
+    properties:
+      tutorialList:
+            type: array
+            items:
+              $ref: '#/definitions/Tutorial'
+  Tutorial:
+    type: object
+    properties:
+      title:
+        $ref: '#/definitions/Texto'
+      description:
+        $ref: '#/definitions/Texto'
+      published:
+        type: boolean

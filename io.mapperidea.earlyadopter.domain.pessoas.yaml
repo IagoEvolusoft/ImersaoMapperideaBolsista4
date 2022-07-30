@@ -1,0 +1,734 @@
+swagger: '2.0'
+info:
+  version: v1
+  title: CentraID API pessoas
+  description: API para integración de CentraID paquete pessoas
+host: api.centraid.com
+schemes:
+  - https
+basePath: /pessoas
+paths:
+  /Pessoa:
+    get:
+      operationId: "Pessoa_listAll"
+      summary: Lista todos los registros de Pessoa.
+      tags:
+        - Pessoa
+      parameters:
+      produces:
+      - "application/json"
+      responses:
+        '200':
+          description: OK
+          schema:
+              $ref: '#/definitions/PessoaResult'
+    post:
+      operationId: "Pessoa_create"
+      summary: Crea un registro de Pessoa.
+      tags:
+        - Pessoa
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Request body"
+        required: true
+        schema:
+              $ref: '#/definitions/Pessoa'
+      responses:
+        '200':
+          description: OK
+          schema:
+              $ref: '#/definitions/Pessoa'
+  /Pessoa/count:
+    get:
+      operationId: "Pessoa_count"
+      summary: Retorna total de registros de Pessoa.
+      tags:
+        - Pessoa
+      parameters:
+      produces:
+      - "application/json"
+      responses: 
+        '200': 
+          description: OK 
+          schema: 
+              $ref: '#/definitions/CountResult' 
+  /Pessoa/max/{campo}:
+    get:
+      operationId: "Pessoa_max"
+      summary: Retorna el valor máximo de campo de los registros de Pessoa.
+      tags:
+        - Pessoa
+      parameters:
+      - name: "campo"
+        in: "path"
+        required: true
+        type: "string"
+      produces:
+      - "application/json"
+      responses:  
+        '200':  
+          description: OK  
+          schema:  
+              $ref: '#/definitions/MaxResult'  
+  /Pessoa/sum/{campo}:
+    get: 
+      operationId: "Pessoa_sum" 
+      summary: Retorna la suma de un campo de los registros de Pessoa.
+      tags:
+        - Pessoa
+      parameters: 
+      - name: "campo" 
+        in: "path" 
+        required: true 
+        type: "string" 
+      produces:
+      - "application/json"
+      responses:   
+        '200':   
+          description: OK   
+          schema:   
+              $ref: '#/definitions/SumResult'   
+  /Pessoa/{from}/{to}:
+    get:
+      operationId: "Pessoa_listRange"
+      summary: Lista los registros de Pessoa por posición.
+      tags:
+        - Pessoa
+      parameters:
+      - name: "from"
+        in: "path"
+        required: true
+        type: "integer"
+      - name: "to"
+        in: "path"
+        required: true
+        type: "integer"
+      produces:
+      - "application/json"
+      responses:
+        '200':
+          description: OK
+          schema:
+              $ref: '#/definitions/PessoaResult'
+  /Pessoa/{id}:
+    get:
+      operationId: "Pessoa_read"
+      summary: Retorna o respectivo registro de Pessoa.
+      tags:
+        - Pessoa
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+      produces:
+      - "application/json"
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Pessoa'
+    put:
+      operationId: "Pessoa_update" 
+      summary: Actualiza el respectivo registro de Pessoa.
+      tags:
+        - Pessoa
+      consumes:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+      - in: "body"
+        name: "body"
+        description: "Request body"
+        required: true
+        schema:
+          $ref: '#/definitions/Pessoa'
+      responses:
+        '200':
+          description: OK
+    delete:
+      operationId: "Pessoa_delete"  
+      summary: Remove o respectivo registro de Pessoa.
+      tags:
+        - Pessoa
+      parameters: 
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+      responses:
+        '200':
+          description: OK
+###################################
+  /PessoaFisica:
+    get:
+      operationId: "PessoaFisica_listAll"
+      summary: Lista todos los registros de PessoaFisica.
+      tags:
+        - PessoaFisica
+      parameters:
+      produces:
+      - "application/json"
+      responses:
+        '200':
+          description: OK
+          schema:
+              $ref: '#/definitions/PessoaFisicaResult'
+    post:
+      operationId: "PessoaFisica_create"
+      summary: Crea un registro de PessoaFisica.
+      tags:
+        - PessoaFisica
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Request body"
+        required: true
+        schema:
+              $ref: '#/definitions/PessoaFisica'
+      responses:
+        '200':
+          description: OK
+          schema:
+              $ref: '#/definitions/PessoaFisica'
+  /PessoaFisica/count:
+    get:
+      operationId: "PessoaFisica_count"
+      summary: Retorna total de registros de PessoaFisica.
+      tags:
+        - PessoaFisica
+      parameters:
+      produces:
+      - "application/json"
+      responses: 
+        '200': 
+          description: OK 
+          schema: 
+              $ref: '#/definitions/CountResult' 
+  /PessoaFisica/max/{campo}:
+    get:
+      operationId: "PessoaFisica_max"
+      summary: Retorna el valor máximo de campo de los registros de PessoaFisica.
+      tags:
+        - PessoaFisica
+      parameters:
+      - name: "campo"
+        in: "path"
+        required: true
+        type: "string"
+      produces:
+      - "application/json"
+      responses:  
+        '200':  
+          description: OK  
+          schema:  
+              $ref: '#/definitions/MaxResult'  
+  /PessoaFisica/sum/{campo}:
+    get: 
+      operationId: "PessoaFisica_sum" 
+      summary: Retorna la suma de un campo de los registros de PessoaFisica.
+      tags:
+        - PessoaFisica
+      parameters: 
+      - name: "campo" 
+        in: "path" 
+        required: true 
+        type: "string" 
+      produces:
+      - "application/json"
+      responses:   
+        '200':   
+          description: OK   
+          schema:   
+              $ref: '#/definitions/SumResult'   
+  /PessoaFisica/{from}/{to}:
+    get:
+      operationId: "PessoaFisica_listRange"
+      summary: Lista los registros de PessoaFisica por posición.
+      tags:
+        - PessoaFisica
+      parameters:
+      - name: "from"
+        in: "path"
+        required: true
+        type: "integer"
+      - name: "to"
+        in: "path"
+        required: true
+        type: "integer"
+      produces:
+      - "application/json"
+      responses:
+        '200':
+          description: OK
+          schema:
+              $ref: '#/definitions/PessoaFisicaResult'
+  /PessoaFisica/{id}:
+    get:
+      operationId: "PessoaFisica_read"
+      summary: Retorna o respectivo registro de PessoaFisica.
+      tags:
+        - PessoaFisica
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+      produces:
+      - "application/json"
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/PessoaFisica'
+    put:
+      operationId: "PessoaFisica_update" 
+      summary: Actualiza el respectivo registro de PessoaFisica.
+      tags:
+        - PessoaFisica
+      consumes:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+      - in: "body"
+        name: "body"
+        description: "Request body"
+        required: true
+        schema:
+          $ref: '#/definitions/PessoaFisica'
+      responses:
+        '200':
+          description: OK
+    delete:
+      operationId: "PessoaFisica_delete"  
+      summary: Remove o respectivo registro de PessoaFisica.
+      tags:
+        - PessoaFisica
+      parameters: 
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+      responses:
+        '200':
+          description: OK
+###################################
+  /PessoaJuridica:
+    get:
+      operationId: "PessoaJuridica_listAll"
+      summary: Lista todos los registros de PessoaJuridica.
+      tags:
+        - PessoaJuridica
+      parameters:
+      produces:
+      - "application/json"
+      responses:
+        '200':
+          description: OK
+          schema:
+              $ref: '#/definitions/PessoaJuridicaResult'
+    post:
+      operationId: "PessoaJuridica_create"
+      summary: Crea un registro de PessoaJuridica.
+      tags:
+        - PessoaJuridica
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Request body"
+        required: true
+        schema:
+              $ref: '#/definitions/PessoaJuridica'
+      responses:
+        '200':
+          description: OK
+          schema:
+              $ref: '#/definitions/PessoaJuridica'
+  /PessoaJuridica/count:
+    get:
+      operationId: "PessoaJuridica_count"
+      summary: Retorna total de registros de PessoaJuridica.
+      tags:
+        - PessoaJuridica
+      parameters:
+      produces:
+      - "application/json"
+      responses: 
+        '200': 
+          description: OK 
+          schema: 
+              $ref: '#/definitions/CountResult' 
+  /PessoaJuridica/max/{campo}:
+    get:
+      operationId: "PessoaJuridica_max"
+      summary: Retorna el valor máximo de campo de los registros de PessoaJuridica.
+      tags:
+        - PessoaJuridica
+      parameters:
+      - name: "campo"
+        in: "path"
+        required: true
+        type: "string"
+      produces:
+      - "application/json"
+      responses:  
+        '200':  
+          description: OK  
+          schema:  
+              $ref: '#/definitions/MaxResult'  
+  /PessoaJuridica/sum/{campo}:
+    get: 
+      operationId: "PessoaJuridica_sum" 
+      summary: Retorna la suma de un campo de los registros de PessoaJuridica.
+      tags:
+        - PessoaJuridica
+      parameters: 
+      - name: "campo" 
+        in: "path" 
+        required: true 
+        type: "string" 
+      produces:
+      - "application/json"
+      responses:   
+        '200':   
+          description: OK   
+          schema:   
+              $ref: '#/definitions/SumResult'   
+  /PessoaJuridica/{from}/{to}:
+    get:
+      operationId: "PessoaJuridica_listRange"
+      summary: Lista los registros de PessoaJuridica por posición.
+      tags:
+        - PessoaJuridica
+      parameters:
+      - name: "from"
+        in: "path"
+        required: true
+        type: "integer"
+      - name: "to"
+        in: "path"
+        required: true
+        type: "integer"
+      produces:
+      - "application/json"
+      responses:
+        '200':
+          description: OK
+          schema:
+              $ref: '#/definitions/PessoaJuridicaResult'
+  /PessoaJuridica/{id}:
+    get:
+      operationId: "PessoaJuridica_read"
+      summary: Retorna o respectivo registro de PessoaJuridica.
+      tags:
+        - PessoaJuridica
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+      produces:
+      - "application/json"
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/PessoaJuridica'
+    put:
+      operationId: "PessoaJuridica_update" 
+      summary: Actualiza el respectivo registro de PessoaJuridica.
+      tags:
+        - PessoaJuridica
+      consumes:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+      - in: "body"
+        name: "body"
+        description: "Request body"
+        required: true
+        schema:
+          $ref: '#/definitions/PessoaJuridica'
+      responses:
+        '200':
+          description: OK
+    delete:
+      operationId: "PessoaJuridica_delete"  
+      summary: Remove o respectivo registro de PessoaJuridica.
+      tags:
+        - PessoaJuridica
+      parameters: 
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+      responses:
+        '200':
+          description: OK
+###################################
+  /TipoMembroFamilia:
+    get:
+      operationId: "TipoMembroFamilia_listAll"
+      summary: Lista todos los registros de TipoMembroFamilia.
+      tags:
+        - TipoMembroFamilia
+      parameters:
+      produces:
+      - "application/json"
+      responses:
+        '200':
+          description: OK
+          schema:
+              $ref: '#/definitions/TipoMembroFamiliaResult'
+    post:
+      operationId: "TipoMembroFamilia_create"
+      summary: Crea un registro de TipoMembroFamilia.
+      tags:
+        - TipoMembroFamilia
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Request body"
+        required: true
+        schema:
+              $ref: '#/definitions/TipoMembroFamilia'
+      responses:
+        '200':
+          description: OK
+          schema:
+              $ref: '#/definitions/TipoMembroFamilia'
+  /TipoMembroFamilia/count:
+    get:
+      operationId: "TipoMembroFamilia_count"
+      summary: Retorna total de registros de TipoMembroFamilia.
+      tags:
+        - TipoMembroFamilia
+      parameters:
+      produces:
+      - "application/json"
+      responses: 
+        '200': 
+          description: OK 
+          schema: 
+              $ref: '#/definitions/CountResult' 
+  /TipoMembroFamilia/max/{campo}:
+    get:
+      operationId: "TipoMembroFamilia_max"
+      summary: Retorna el valor máximo de campo de los registros de TipoMembroFamilia.
+      tags:
+        - TipoMembroFamilia
+      parameters:
+      - name: "campo"
+        in: "path"
+        required: true
+        type: "string"
+      produces:
+      - "application/json"
+      responses:  
+        '200':  
+          description: OK  
+          schema:  
+              $ref: '#/definitions/MaxResult'  
+  /TipoMembroFamilia/sum/{campo}:
+    get: 
+      operationId: "TipoMembroFamilia_sum" 
+      summary: Retorna la suma de un campo de los registros de TipoMembroFamilia.
+      tags:
+        - TipoMembroFamilia
+      parameters: 
+      - name: "campo" 
+        in: "path" 
+        required: true 
+        type: "string" 
+      produces:
+      - "application/json"
+      responses:   
+        '200':   
+          description: OK   
+          schema:   
+              $ref: '#/definitions/SumResult'   
+  /TipoMembroFamilia/{from}/{to}:
+    get:
+      operationId: "TipoMembroFamilia_listRange"
+      summary: Lista los registros de TipoMembroFamilia por posición.
+      tags:
+        - TipoMembroFamilia
+      parameters:
+      - name: "from"
+        in: "path"
+        required: true
+        type: "integer"
+      - name: "to"
+        in: "path"
+        required: true
+        type: "integer"
+      produces:
+      - "application/json"
+      responses:
+        '200':
+          description: OK
+          schema:
+              $ref: '#/definitions/TipoMembroFamiliaResult'
+  /TipoMembroFamilia/{id}:
+    get:
+      operationId: "TipoMembroFamilia_read"
+      summary: Retorna o respectivo registro de TipoMembroFamilia.
+      tags:
+        - TipoMembroFamilia
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+      produces:
+      - "application/json"
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/TipoMembroFamilia'
+    put:
+      operationId: "TipoMembroFamilia_update" 
+      summary: Actualiza el respectivo registro de TipoMembroFamilia.
+      tags:
+        - TipoMembroFamilia
+      consumes:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+      - in: "body"
+        name: "body"
+        description: "Request body"
+        required: true
+        schema:
+          $ref: '#/definitions/TipoMembroFamilia'
+      responses:
+        '200':
+          description: OK
+    delete:
+      operationId: "TipoMembroFamilia_delete"  
+      summary: Remove o respectivo registro de TipoMembroFamilia.
+      tags:
+        - TipoMembroFamilia
+      parameters: 
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+      responses:
+        '200':
+          description: OK
+###################################
+definitions:
+  CountResult:
+    type: object
+    properties:
+      count:
+        type: integer
+  MaxResult:
+    type: object
+    properties:
+      max:
+        type: number
+  SumResult:
+    type: object
+    properties:
+      sum:
+        type: number
+  PessoaResult:
+    type: object
+    properties:
+      pessoaList:
+            type: array
+            items:
+              $ref: '#/definitions/Pessoa'
+  Pessoa:
+    type: object
+    properties:
+      documento:
+        $ref: '#/definitions/DocumentoIdentificacao'
+      nome:
+        $ref: '#/definitions/Texto'
+      endereco:
+        $ref: '#/definitions/Endereco'
+      dataNascimento:
+        $ref: '#/definitions/Data'
+      membrosFamilia:
+        type: array
+        items:
+          $ref: '#/definitions/MembroFamilia'
+  PessoaFisicaResult:
+    type: object
+    properties:
+      pessoaFisicaList:
+            type: array
+            items:
+              $ref: '#/definitions/PessoaFisica'
+  PessoaFisica:
+    type: object
+    properties:
+      nomeMae:
+        $ref: '#/definitions/Texto'
+      nomePai:
+        $ref: '#/definitions/Texto'
+  PessoaJuridicaResult:
+    type: object
+    properties:
+      pessoaJuridicaList:
+            type: array
+            items:
+              $ref: '#/definitions/PessoaJuridica'
+  PessoaJuridica:
+    type: object
+    properties:
+      fantasia:
+        $ref: '#/definitions/Texto'
+  TipoMembroFamiliaResult:
+    type: object
+    properties:
+      tipoMembroFamiliaList:
+            type: array
+            items:
+              $ref: '#/definitions/TipoMembroFamilia'
+  TipoMembroFamilia:
+    type: object
+    properties:
+      nome:
+        $ref: '#/definitions/Texto'
+  MembroFamiliaResult:
+    type: object
+    properties:
+      membroFamiliaList:
+            type: array
+            items:
+              $ref: '#/definitions/MembroFamilia'
+  MembroFamilia:
+    type: object
+    properties:
+      pessoa:
+        $ref: '#/definitions/Pessoa'
+      tipo:
+        $ref: '#/definitions/TipoMembroFamilia'
+      membro:
+        $ref: '#/definitions/Pessoa'
