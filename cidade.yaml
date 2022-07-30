@@ -1,0 +1,31 @@
+ class:
+   @name: Cidade
+   @package: io.mapperidea.earlyadopter.domain.geo
+   @mode: bean
+   attributes:
+     attribute:
+       @mode: directToField
+       @name: codigo
+       @key: false
+       @type: Numero
+     attribute:
+       @mode: directToField
+       @name: nome
+       @key: false
+       @type: Texto
+       @typeParameter: 64
+     attribute:
+       @mode: oneToOne
+       @name: uf
+       @key: false
+       @type: UnidadeFederativa
+     attribute:
+       @mode: oneToMany
+       @name: bairros
+       @key: false
+       @type: Bairro
+   constructors:
+   methods:
+   events:
+   internalClasses:
+   body:

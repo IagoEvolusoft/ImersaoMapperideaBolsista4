@@ -1,0 +1,34 @@
+ class:
+   @name: PaisList
+   @package: io.mapperidea.earlyadopter.window.geo.pais
+   @mode: window.list
+   attributes:
+     attribute:
+       @mode: oneToMany
+       @name: paisCollection
+       @key: false
+       @type: Pais
+     attribute:
+       @mode: oneToOne
+       @name: pais
+       @key: false
+       @type: Pais
+   constructors:
+   methods:
+   events:
+   internalClasses:
+   layout:
+     attributes:
+       attribute:
+         @mode: list.col
+         @name: .sigla
+         events:
+       attribute:
+         @mode: list.col
+         @name: .nome
+         events:
+       attribute:
+         @mode: list.col
+         @name: .ativo
+         events:
+   body:

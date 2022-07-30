@@ -1,0 +1,32 @@
+ class:
+   @name: UnidadeFederativa
+   @package: io.mapperidea.earlyadopter.domain.geo
+   @mode: bean
+   properties:
+     descricao:
+       value:
+         @color: green
+         Unidade Federativa ou Provincia de um País
+   attributes:
+     attribute:
+       @mode: oneToOne
+       @name: pais
+       @key: true
+       @type: Pais
+     attribute:
+       @mode: directToField
+       @name: sigla
+       @key: true
+       @type: Texto
+       @typeParameter: 2
+     attribute:
+       @mode: directToField
+       @name: nome
+       @key: false
+       @type: Texto
+       @typeParameter: 64
+   constructors:
+   methods:
+   events:
+   internalClasses:
+   body:

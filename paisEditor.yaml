@@ -1,0 +1,48 @@
+ class:
+   @name: PaisEditor
+   @package: io.mapperidea.earlyadopter.window.geo.pais
+   @mode: window.editor
+   attributes:
+     attribute:
+       @mode: oneToOne
+       @name: pais
+       @key: false
+       @type: Pais
+   constructors:
+   methods:
+   events:
+   internalClasses:
+   layout:
+     attributes:
+       attribute:
+         @mode: editor.rows
+         attributes:
+           attribute:
+             @mode: editor.row
+             @name: .sigla
+             events:
+           attribute:
+             @mode: editor.row
+             @name: .nome
+             properties:
+               label:
+                 pt:
+                   value:
+                     @color: green
+                     Nome do País
+                 en:
+                   value:
+                     @color: green
+                     Country Name
+                 es:
+                   value:
+                     @color: green
+                     Nombre del País
+             events:
+           attribute:
+             @mode: editor.row
+             @name: .ativo
+             properties:
+               visible:
+             events:
+   body:
